@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-53M24GE3T3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-53M24GE3T3");
+      <!-- Google Ads -->
+      gtag("config", "AW-11293479190");
+    </script>
+
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "jazwo0eeig");
+    </script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Fontawesome using personal account -->
+    <script
+      src="https://kit.fontawesome.com/c0ac6df0dd.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Andinow-Food Recommendation Concierge Service Platform</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://s3uploader2-s3uploadbucket-1cl5zvm5v7dya.s3.us-east-2.amazonaws.com/andinow/favicon.ico"
+    />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://unpkg.com/vue@1.0.28/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios@0.2.1/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://andinow.com"
+        ><img
+          src="https://s3uploader2-s3uploadbucket-1cl5zvm5v7dya.s3.us-east-2.amazonaws.com/andinow/200x100px-01-transparent.png"
+          alt=""
+          height="75"
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="true"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse show" id="navbarNav" style="">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="https://andinow.com/expert-rank"
+              >Andinow Food Recommendations</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://andinow.com/pages/howtouse"
+              >How It Works</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="https://andinow.com/login">Log In</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid bg-orange py-3">
+      <div class="container">
+        <h4 class="fw-normal1 text-white">Become an Andinow Foodie Expert</h4>
+        <h6 class="text-secondary1 fw-normal1">
+          Get rewards and recognition for being a foodie expert in your city!
+        </h6>
+      </div>
+    </div>
+    <div class="container my-4">
+      <!-- 
+  <form action="/Prod/signup?form=data&form_version=new&expert_form=true" method="post" enctype="multipart/form-data">
+  -->
+      <form id="myForm">
+        <div class="row justify-content-lg-start" id="app">
+          <div class="col-lg-4 col-md-6 my-3">
+            <label for="" class="fw-normal1">Full Name</label>
+            <input
+              type="text"
+              name="name"
+              class="resturentFormInput"
+              id="name"
+              maxlength="80"
+              placeholder="Enter your full name "
+              required
+            />
+          </div>
+          <div class="col-lg-4 col-md-6 my-3">
+            <label for="" class="fw-normal1">Invite Code</label>
+            <input
+              type="text"
+              name="invite_code"
+              class="resturentFormInput"
+              id="invite_code"
+              placeholder="Enter the invite code"
+              maxlength="25"
+            />
+          </div>
+          <div class="col-lg-4 col-md-6 my-3">
+            <label for="" class="fw-normal1">Email</label>
+            <input
+              type="email"
+              name="email"
+              class="resturentFormInput"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div class="col-lg-4 col-md-6 my-3">
+            <label for="" class="fw-normal1">Phone Type</label>
+            <select
+              class="select-options"
+              id="seeAnotherField"
+              name="phone_type"
+            >
+              <option value="us">U.S Phone</option>
+              <option value="whatsapp">Whatsapp</option>
+            </select>
+          </div>
+          <div class="col-lg-4 col-md-6 my-3" id="us_div">
+            <label for="user_phone" class="fw-normal1">Phone Number</label>
+            <input
+              type="text"
+              id="user_phone"
+              name="user_phone"
+              class="resturentFormInput"
+              maxlength="12"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              placeholder="Enter your phone number"
+              required
+            />
+            <small id="phoneHelp" class="text-muted"
+              >Format: 123-456-7890 <br />Enter your U.S phone number accurately
+              to receive a text confirmation for using the service
+            </small>
+          </div>
+
+          <div
+            class="col-lg-4 col-md-6 my-3"
+            id="whatsapp_div"
+            style="display: none"
+          >
+            <label for="whatsapp_phone" class="fw-normal1"
+              >Whatsapp Number</label
+            >
+            <input
+              type="text"
+              id="whatsapp_phone"
+              name="whatsapp_phone"
+              class="resturentFormInput"
+              maxlength="15"
+              placeholder="+01-1112221234"
+            />
+            <small id="whatsapppHelp" class="form-text text-muted">
+              Format: +01-1112221234 (country code:01)
+              <br />Enter your whatsapp number with country code to receive a
+              text confirmation for using the service
+            </small>
+          </div>
+          <div
+            class="col-lg-4 col-md-6 my-3"
+            id="whatsapp_div2"
+            style="display: none"
+          >
+            <label for="from_country">What country are you from?</label>
+            <select
+              id="from_country"
+              name="from_country"
+              class="select-options"
+            >
+              <option disabled selected value="">Choose your country</option>
+              <option value="Afghanistan">Afghanistan</option>
+              <option value="Åland Islands">Åland Islands</option>
+              <option value="Albania">Albania</option>
+              <option value="Algeria">Algeria</option>
+              <option value="American Samoa">American Samoa</option>
+              <option value="Andorra">Andorra</option>
+              <option value="Angola">Angola</option>
+              <option value="Anguilla">Anguilla</option>
+              <option value="Antarctica">Antarctica</option>
+              <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+              <option value="Argentina">Argentina</option>
+              <option value="Armenia">Armenia</option>
+              <option value="Aruba">Aruba</option>
+              <option value="Australia">Australia</option>
+              <option value="Austria">Austria</option>
+              <option value="Azerbaijan">Azerbaijan</option>
+              <option value="Bahamas">Bahamas</option>
+              <option value="Bahrain">Bahrain</option>
+              <option value="Bangladesh">Bangladesh</option>
+              <option value="Barbados">Barbados</option>
+              <option value="Belarus">Belarus</option>
+              <option value="Belgium">Belgium</option>
+              <option value="Belize">Belize</option>
+              <option value="Benin">Benin</option>
+              <option value="Bermuda">Bermuda</option>
+              <option value="Bhutan">Bhutan</option>
+              <option value="Bolivia">Bolivia</option>
+              <option value="Bosnia and Herzegovina">
+                Bosnia and Herzegovina
+              </option>
+              <option value="Botswana">Botswana</option>
+              <option value="Bouvet Island">Bouvet Island</option>
+              <option value="Brazil">Brazil</option>
+              <option value="Brunei Darussalam">Brunei Darussalam</option>
+              <option value="Bulgaria">Bulgaria</option>
+              <option value="Burkina Faso">Burkina Faso</option>
+              <option value="Burundi">Burundi</option>
+              <option value="Cambodia">Cambodia</option>
+              <option value="Cameroon">Cameroon</option>
+              <option value="Canada">Canada</option>
+              <option value="Cape Verde">Cape Verde</option>
+              <option value="Cayman Islands">Cayman Islands</option>
+              <option value="Central African Republic">
+                Central African Republic
+              </option>
+              <option value="Chad">Chad</option>
+              <option value="Chile">Chile</option>
+              <option value="China">China</option>
+              <option value="Christmas Island">Christmas Island</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Comoros">Comoros</option>
+              <option value="Congo">Congo</option>
+              <option value="Cook Islands">Cook Islands</option>
+              <option value="Costa Rica">Costa Rica</option>
+              <option value="Cote D'ivoire">Cote D'ivoire</option>
+              <option value="Croatia">Croatia</option>
+              <option value="Cuba">Cuba</option>
+              <option value="Cyprus">Cyprus</option>
+              <option value="Czech Republic">Czech Republic</option>
+              <option value="Denmark">Denmark</option>
+              <option value="Djibouti">Djibouti</option>
+              <option value="Dominica">Dominica</option>
+              <option value="Dominican Republic">Dominican Republic</option>
+              <option value="Ecuador">Ecuador</option>
+              <option value="Egypt">Egypt</option>
+              <option value="El Salvador">El Salvador</option>
+              <option value="Equatorial Guinea">Equatorial Guinea</option>
+              <option value="Eritrea">Eritrea</option>
+              <option value="Estonia">Estonia</option>
+              <option value="Ethiopia">Ethiopia</option>
+              <option value="Faroe Islands">Faroe Islands</option>
+              <option value="Fiji">Fiji</option>
+              <option value="Finland">Finland</option>
+              <option value="France">France</option>
+              <option value="French Guiana">French Guiana</option>
+              <option value="Gabon">Gabon</option>
+              <option value="Gambia">Gambia</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Germany">Germany</option>
+              <option value="Ghana">Ghana</option>
+              <option value="Gibraltar">Gibraltar</option>
+              <option value="Greece">Greece</option>
+              <option value="Greenland">Greenland</option>
+              <option value="Grenada">Grenada</option>
+              <option value="Guadeloupe">Guadeloupe</option>
+              <option value="Guam">Guam</option>
+              <option value="Guatemala">Guatemala</option>
+              <option value="Guernsey">Guernsey</option>
+              <option value="Guinea">Guinea</option>
+              <option value="Guinea-bissau">Guinea-bissau</option>
+              <option value="Guyana">Guyana</option>
+              <option value="Haiti">Haiti</option>
+              <option value="Holy See (Vatican City State)">
+                Holy See (Vatican City State)
+              </option>
+              <option value="Honduras">Honduras</option>
+              <option value="Hong Kong">Hong Kong</option>
+              <option value="Hungary">Hungary</option>
+              <option value="Iceland">Iceland</option>
+              <option value="India">India</option>
+              <option value="Indonesia">Indonesia</option>
+              <option value="Iran">Iran</option>
+              <option value="Iraq">Iraq</option>
+              <option value="Ireland">Ireland</option>
+              <option value="Isle of Man">Isle of Man</option>
+              <option value="Israel">Israel</option>
+              <option value="Italy">Italy</option>
+              <option value="Jamaica">Jamaica</option>
+              <option value="Japan">Japan</option>
+              <option value="Jersey">Jersey</option>
+              <option value="Jordan">Jordan</option>
+              <option value="Kazakhstan">Kazakhstan</option>
+              <option value="Kenya">Kenya</option>
+              <option value="Kiribati">Kiribati</option>
+              <option value="North Korea">North Korea</option>
+              <option value="Korea">Korea</option>
+              <option value="Kuwait">Kuwait</option>
+              <option value="Kyrgyzstan">Kyrgyzstan</option>
+              <option value="Lao">Lao</option>
+              <option value="Latvia">Latvia</option>
+              <option value="Lebanon">Lebanon</option>
+              <option value="Lesotho">Lesotho</option>
+              <option value="Liberia">Liberia</option>
+              <option value="Libyan Arab Jamahiriya">
+                Libyan Arab Jamahiriya
+              </option>
+              <option value="Liechtenstein">Liechtenstein</option>
+              <option value="Lithuania">Lithuania</option>
+              <option value="Luxembourg">Luxembourg</option>
+              <option value="Macao">Macao</option>
+              <option value="Macedonia">Macedonia</option>
+              <option value="Madagascar">Madagascar</option>
+              <option value="Malawi">Malawi</option>
+              <option value="Malaysia">Malaysia</option>
+              <option value="Maldives">Maldives</option>
+              <option value="Mali">Mali</option>
+              <option value="Malta">Malta</option>
+              <option value="Marshall Islands">Marshall Islands</option>
+              <option value="Martinique">Martinique</option>
+              <option value="Mauritania">Mauritania</option>
+              <option value="Mauritius">Mauritius</option>
+              <option value="Mayotte">Mayotte</option>
+              <option value="Mexico">Mexico</option>
+              <option value="Micronesia">Micronesia</option>
+              <option value="Moldova">Moldova</option>
+              <option value="Monaco">Monaco</option>
+              <option value="Mongolia">Mongolia</option>
+              <option value="Montenegro">Montenegro</option>
+              <option value="Montserrat">Montserrat</option>
+              <option value="Morocco">Morocco</option>
+              <option value="Mozambique">Mozambique</option>
+              <option value="Myanmar">Myanmar</option>
+              <option value="Namibia">Namibia</option>
+              <option value="Nauru">Nauru</option>
+              <option value="Nepal">Nepal</option>
+              <option value="Netherlands">Netherlands</option>
+              <option value="Netherlands Antilles">Netherlands Antilles</option>
+              <option value="New Caledonia">New Caledonia</option>
+              <option value="New Zealand">New Zealand</option>
+              <option value="Nicaragua">Nicaragua</option>
+              <option value="Niger">Niger</option>
+              <option value="Nigeria">Nigeria</option>
+              <option value="Niue">Niue</option>
+              <option value="Norfolk Island">Norfolk Island</option>
+              <option value="Northern Mariana Islands">
+                Northern Mariana Islands
+              </option>
+              <option value="Norway">Norway</option>
+              <option value="Oman">Oman</option>
+              <option value="Pakistan">Pakistan</option>
+              <option value="Palau">Palau</option>
+              <option value="Palestinian">Palestinian</option>
+              <option value="Panama">Panama</option>
+              <option value="Papua New Guinea">Papua New Guinea</option>
+              <option value="Paraguay">Paraguay</option>
+              <option value="Peru">Peru</option>
+              <option value="Philippines">Philippines</option>
+              <option value="Pitcairn">Pitcairn</option>
+              <option value="Poland">Poland</option>
+              <option value="Portugal">Portugal</option>
+              <option value="Puerto Rico">Puerto Rico</option>
+              <option value="Qatar">Qatar</option>
+              <option value="Reunion">Reunion</option>
+              <option value="Romania">Romania</option>
+              <option value="Russian Federation">Russian Federation</option>
+              <option value="Rwanda">Rwanda</option>
+              <option value="Saint Helena">Saint Helena</option>
+              <option value="Saint Kitts">Saint Kitts</option>
+              <option value="Saint Lucia">Saint Lucia</option>
+              <option value="Saint Pierre">Saint Pierre</option>
+              <option value="Saint Vincent">Saint Vincent</option>
+              <option value="Samoa">Samoa</option>
+              <option value="San Marino">San Marino</option>
+              <option value="Saudi Arabia">Saudi Arabia</option>
+              <option value="Senegal">Senegal</option>
+              <option value="Serbia">Serbia</option>
+              <option value="Seychelles">Seychelles</option>
+              <option value="Sierra Leone">Sierra Leone</option>
+              <option value="Singapore">Singapore</option>
+              <option value="Slovakia">Slovakia</option>
+              <option value="Slovenia">Slovenia</option>
+              <option value="Solomon Islands">Solomon Islands</option>
+              <option value="Somalia">Somalia</option>
+              <option value="South Africa">South Africa</option>
+              <option value="Spain">Spain</option>
+              <option value="Sri Lanka">Sri Lanka</option>
+              <option value="Sudan">Sudan</option>
+              <option value="Swaziland">Swaziland</option>
+              <option value="Sweden">Sweden</option>
+              <option value="Switzerland">Switzerland</option>
+              <option value="Syrian Arab Republic">Syrian Arab Republic</option>
+              <option value="Taiwan">Taiwan</option>
+              <option value="Tajikistan">Tajikistan</option>
+              <option value="Tanzania">Tanzania</option>
+              <option value="Thailand">Thailand</option>
+              <option value="Timor-leste">Timor-leste</option>
+              <option value="Togo">Togo</option>
+              <option value="Tokelau">Tokelau</option>
+              <option value="Tonga">Tonga</option>
+              <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+              <option value="Tunisia">Tunisia</option>
+              <option value="Turkey">Turkey</option>
+              <option value="Turkmenistan">Turkmenistan</option>
+              <option value="Turks and Caicos Islands">
+                Turks and Caicos Islands
+              </option>
+              <option value="Tuvalu">Tuvalu</option>
+              <option value="Uganda">Uganda</option>
+              <option value="Ukraine">Ukraine</option>
+              <option value="United Arab Emirates">United Arab Emirates</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="United States">United States</option>
+              <option value="Uruguay">Uruguay</option>
+              <option value="Uzbekistan">Uzbekistan</option>
+              <option value="Vanuatu">Vanuatu</option>
+              <option value="Venezuela">Venezuela</option>
+              <option value="Viet Nam">Viet Nam</option>
+              <option value="Virgin Islands, British">
+                Virgin Islands, British
+              </option>
+              <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
+              <option value="Yemen">Yemen</option>
+              <option value="Zambia">Zambia</option>
+              <option value="Zimbabwe">Zimbabwe</option>
+            </select>
+          </div>
+
+          <div class="col-lg-4 col-md-6 my-3" id="zipcode_div">
+            <label for="zipcode" class="fw-normal1">ZIP Code</label>
+            <input
+              type="text"
+              name="zipcode"
+              class="resturentFormInput"
+              id="zipcode"
+              maxlength="7"
+              placeholder="Enter your current ZIP Code"
+              required
+            />
+          </div>
+
+          <div class="col-lg-4 col-md-6 my-3">
+            <label for="" class="fw-normal1">Gender</label>
+            <div class="d-flex mt-2">
+              <p>
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gender"
+                  value="MALE"
+                  id="user_male"
+                  required
+                />
+                <label for="user_male">Male</label>
+              </p>
+              <p class="ml-3">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gender"
+                  value="FEMALE"
+                  id="user_female"
+                  required
+                />
+                <label for="user_female">Female</label>
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 my-3">
+            <label for="" class="fw-normal1">Taste Profile </label>
+            <select
+              id="taste_profile"
+              name="taste_profile"
+              class="select-options"
+              required
+            >
+              <option disabled selected value="">
+                Choose your taste profile
+              </option>
+              <option value="FUSION">native-born American</option>
+              <option value="FUSION_FOREIGN">foreign-born American</option>
+              <option value="FUSION_FOREIGN">native-born European</option>
+              <option value="FUSION_VIETNAMESE">Vietnamese American</option>
+              <option value="AUTHENTIC_VIETNAMESE">
+                Vietnamese-born American/native-born Vietnamese
+              </option>
+              <option value="FUSION_CHINESE">Chinese American</option>
+              <option value="AUTHENTIC_CHINESE">
+                Chinese-born American/native-born Chinese
+              </option>
+              <option value="FUSION_JAPANESE">Japanese American</option>
+              <option value="AUTHENTIC_JAPANESE">
+                Japanese-born American/native-born Japanese
+              </option>
+              <option value="FUSION_KOREAN">Korean American</option>
+              <option value="AUTHENTIC_KOREAN">
+                Korean-born American/native-born Korean
+              </option>
+              <option value="FUSION_INDIAN">Indian American</option>
+              <option value="AUTHENTIC_INDIAN">
+                Indian-born American/native-born Indian
+              </option>
+              <option value="FUSION_ASIAN">Asian American</option>
+              <option value="AUTHENTIC_ASIAN">
+                foreign-born Asian American
+              </option>
+              <option value="AUTHENTIC_MIDDLE_EAST">Middle Easterner</option>
+            </select>
+          </div>
+
+          <div class="col-lg-4 col-md-6 my-3">
+            <label for="city" class="fw-normal1"
+              >City where you currently live</label
+            >
+            <select id="city" name="city" class="select-options" required>
+              <option disabled selected value="">
+                Select from Andinow-operated cities
+              </option>
+              <option value="WASHINGTON">Washington, DC</option>
+              <option value="FAIRFAX">Northern VA(NOVA)</option>
+              <option value="NEW YORK">New York, NY</option>
+            </select>
+          </div>
+          <div class="col-md-6 my-3">
+            <label for="" class="fw-normal1"
+              >Tell us why you are a trustworthy local foodie expert</label
+            >
+            <textarea
+              id="user_bio"
+              name="user_bio"
+              class="textarea1"
+              rows="5"
+              maxlength="160"
+              placeholder="Write here..."
+            ></textarea>
+          </div>
+          <div class="col-md-6 my-3">
+            <label for="photo" class="fw-normal1">Upload profile photo</label>
+            <div
+              id="upload-btn"
+              class="uploadBox d-flex flex-column align-items-center justify-content-center"
+            >
+              <img
+                src="https://s3uploader2-s3uploadbucket-1cl5zvm5v7dya.s3.us-east-2.amazonaws.com/andinow/uploadIcon.png"
+                class="img-fluid mx-auto d-block"
+                alt=""
+              />
+              <h5 class="text-center m-0 mt-1">Click here to upload</h5>
+              <p class="text-secondary text-center m-0 mt-1">
+                (Upload max 5 MB JPEG or PNG file)
+              </p>
+              <p class="text-danger" id="imageError">Image is required</p>
+              <div id="selectedFileName" style="display: none"></div>
+            </div>
+            <input type="file" id="photo" name="photo" style="display: none" />
+          </div>
+          <div class="col-lg-6 my-3">
+            <div class="row">
+              <div class="col-12">
+                <h5 class="m-0">
+                  What's your favorite dish at your go-to restaurant?
+                </h5>
+              </div>
+              <div class="col-6 my-3">
+                <label for="" class="fw-normal1">Dish Name</label>
+                <input
+                  type="text"
+                  name="fav_dish"
+                  class="resturentFormInput"
+                  placeholder="Enter dish name"
+                />
+              </div>
+              <div class="col-6 my-3">
+                <label for="" class="fw-normal1">At Restaurant</label>
+                <input
+                  type="text"
+                  name="fav_restaurant"
+                  class="resturentFormInput"
+                  placeholder="Enter restaurant name"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div
+              class="g-recaptcha"
+              data-sitekey="6Ldg1sIpAAAAAPB4obFerd2136JomrZQQJgPvxrv"
+            ></div>
+          </div>
+          <div class="col-12">
+            <p>
+              By clicking Sign Up, you authorize Andinow to send text messages
+              with food recommendations and other helpful information provided
+              by Andinow and local foodie experts. Message/data rates apply. By
+              proceeding, you agree to our
+              <a href="https://andinow.com/policies/privacy-policy"
+                ><span class="text-orange">Privacy Policy</span></a
+              >
+              and
+              <a href="https://andinow.com/policies/terms-of-service"
+                ><span class="text-orange">Term</span></a
+              >
+            </p>
+          </div>
+          <div class="col-12">
+            <div class="col-lg-5 mx-auto mt-3 px-md-4">
+              <button
+                type="button"
+                id="submitForm"
+                class="orange-btn my-2 d-block mx-auto loginBtn"
+              >
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- commenting out
+<script>
+  document.getElementById("upload-btn").addEventListener("click", function () {
+    document.getElementById("photo").click();
+  });
+  
+  document.getElementById("photo").addEventListener("change", function () {
+    //var file = this.files[0];
+    // You can do further processing with the selected file here, like uploading it via AJAX
+    // console.log("Selected file:", file);
+    // Get the selected file
+    var selectedFile = this.files[0];
+    
+    // Display the filename
+    document.getElementById('selectedFileName').textContent = "Selected File: " + selectedFile.name;
+    document.getElementById('selectedFileName').style.display = "block";
+  });
+  
+</script>
+-->
+
+    <script src="/index.js"></script>
+    <!-- Optional JavaScript -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
