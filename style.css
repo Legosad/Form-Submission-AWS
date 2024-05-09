@@ -445,7 +445,10 @@ input.search-box {
 .recaptaWrpper img {
   width: 35px;
 }
-
+.g-recaptcha-error {
+  color: #ee373d;
+  display: none;
+}
 .checkBOx {
   scale: 1.5;
   margin-right: 10px;
